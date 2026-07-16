@@ -1,7 +1,14 @@
 import { Text, View, StyleSheet } from "react-native";
-import { Link } from "expo-router";
+import { Link, Redirect } from "expo-router";
 import {Image} from "expo-image";
+import "../../global.css"
+import { useAuth } from "@clerk/clerk-expo";
 export default function Index() {
+  const { isSignedIn } = useAuth();
+  if (!isSignedIn) {
+     return <Redirect href="/(auth)/index" />;
+  }
+
   return (
     <View style={styles.container}>
       <Text className="text-red-500 text-4xl">Edit src/app/index.tsx to edit this screen 123.</Text>
