@@ -7,7 +7,7 @@ export default function AuthRoutesLayout() {
   if (!isLoaded) return null;
 
   if (isSignedIn) {
-    // return <Redirect href={"/(tabs)"} />;
+    return <Redirect href={"/(tabs)"} />;
   }
 
   return <Stack screenOptions={{ headerShown: false }} />;

@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@clerk/clerk-expo": "^2.19.31",
+    "@expo/vector-icons": "^15.0.2",
     "@react-navigation/bottom-tabs": "^7.15.5",
     "@react-navigation/elements": "^2.9.10",
     "@react-navigation/native": "^7.1.33",
+    "@sentry/react-native": "^8.19.0",
     "babel-preset-expo": "~55.0.8",
     "expo": "~55.0.28",
     "expo-auth-session": "~55.0.17",
