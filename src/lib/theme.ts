@@ -169,12 +169,11 @@ export const studyBuddyTheme: DeepPartial<Theme> = {
   },
   messageList: {
     scrollToBottomButton: {
-      chevronColor: COLORS.text,
-      container: {
-        backgroundColor: COLORS.surface,
-        borderColor: COLORS.border,
-      },
-    },
+  container: {
+    backgroundColor: COLORS.surface,
+    borderColor: COLORS.border,
+  },
+},
     container: {
       backgroundColor: COLORS.surfaceLight,
     },
