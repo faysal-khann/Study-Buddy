@@ -33,7 +33,7 @@ export default function TabsLayout() {
 
           height: 70,
 
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "bg-surface",
 
           borderRadius: 35,
 
@@ -41,20 +41,9 @@ export default function TabsLayout() {
 
           elevation: 12,
 
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 8,
-          },
-          shadowOpacity: 0.15,
-          shadowRadius: 10,
         },
 
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "600",
-          marginBottom: 6,
-        },
+        
       }}
     >
       <Tabs.Screen
