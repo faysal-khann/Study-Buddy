@@ -1,3 +1,6 @@
+import ChatWrapper from "@/components/ChatWrapper";
+import VideoProvider from "@/components/VideoProvider";
+import { AppProvider } from "@/contexts/AppProvider";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import * as Sentry from "@sentry/react-native";
@@ -19,7 +22,12 @@ Sentry.init({
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1,
   integrations: [
-    Sentry.mobileReplayIntegration(),
+    Sentry.mobileReplayIntegration({
+      maskAllImages: false,
+      maskAllVectors: false,
+
+      maskAllText: false,
+    }),
     Sentry.feedbackIntegration(),
   ],
 
@@ -29,11 +37,17 @@ Sentry.init({
 export default function RootLayout() {
   return (
     <ClerkProvider tokenCache={tokenCache}>
-      <GestureHandlerRootView  className="flex-1">
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="(auth)" />
-        </Stack>
+      <GestureHandlerRootView className="flex-1">
+        <ChatWrapper>
+          <VideoProvider>
+            <AppProvider>
+              <Stack screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="(auth)" />
+                <Stack.Screen name="(tabs)" />
+              </Stack>
+            </AppProvider>
+          </VideoProvider>
+        </ChatWrapper>
       </GestureHandlerRootView>
     </ClerkProvider>
   );

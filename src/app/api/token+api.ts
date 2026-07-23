@@ -8,7 +8,7 @@ export async function POST(request: Request) {
 
   const body = await request.json();
 
-  const { userId } = body?.userId;
+ const { userId } = body; // ✅ destructure from body, not body.userId
 
   if (!userId) {
     return Response.json({ error: "userId is required" }, { status: 400 });
