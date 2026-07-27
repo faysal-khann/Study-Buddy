@@ -8,10 +8,11 @@ import { FullScreenLoader } from "./FullScreenLoader";
 import * as Sentry from "@sentry/react-native";
 
 const STREAM_API_KEY = process.env.EXPO_PUBLIC_STREAM_API_KEY!;
+const API_BASE_URL="https://studyapps-api.onrender.com"
 
 const syncUserToStream = async (user: UserResource) => {
   try {
-    await fetch("/api/sync-user", { 
+    await fetch(`${API_BASE_URL}/api/sync-user`, { 
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -38,7 +39,7 @@ const ChatClient = ({ children, user }: { children: React.ReactNode; user: UserR
 
   const tokenProvider = async () => {
     try {
-      const response = await fetch("/api/token", {
+      const response = await fetch(`${API_BASE_URL}/api/token`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user.id }),
